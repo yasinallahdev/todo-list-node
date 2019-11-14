@@ -4,7 +4,8 @@
   "description": "Todo List Made with Node.JS and MongoDB",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js"
+    "test": "node app.js",
+    "autotest": "nodemon app.js"
   },
   "repository": {
     "type": "git",

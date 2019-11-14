@@ -1,0 +1,28 @@
+#todoBox header, #todoBox footer {
+    background-color: #000;
+    color: #fff;
+    font-weight: bolder;
+}
+
+#todoBox section {
+    text-align: left;
+    color: #000;
+}
+
+.completed {
+    color: #aaa;
+    text-decoration: #aaa line-through;
+}
+
+.idData {
+    display: none;
+}
+
+body {
+    text-align: center;
+}
+
+#todoBox {
+    display: inline-grid;
+    border: 1px solid black;
+}

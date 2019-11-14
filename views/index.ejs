@@ -8,6 +8,35 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+
+        <section id="todoBox">
+            <header>
+                <p>TODO LIST</p>
+            </header>
+            <section>
+                <ol>
+                <% for(let i = 0; i<todoItems.length; i++) {%>
+                    <li>
+                        <!-- TODO: Find a Better Way To Do This -->
+                        <span class="idData"><%= todoItems[i]._id %></span>
+                        <% if(todoItems[i].isComplete === true) { %>
+                            <span class="todoItem completed"><%= todoItems[i].todoTask %></span>
+                        <% } else { %>
+                            <span class="todoItem"><%= todoItems[i].todoTask %></span>
+                        <% } %>
+                    </li>
+                <% } %>
+                </ol>
+            </section>
+            <footer>
+                <form action="/todoSubmit" method="post">
+                    <input type="text" name="todoTask" placeholder="Todo Task Here">
+                    <button type="submit">Add Task</button>
+                </form>
+                <button id="#clearAllTasksButton">Clear All Tasks</button>
+                <button id="#clearCompletedTasksButton">Clear Completed Tasks</button>
+            </footer>
+        </section>
         
         <script src="js/script.js"></script>
     </body>
