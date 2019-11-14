@@ -19,6 +19,27 @@ todoBoxItems.forEach(el => {
           .then(data => {
             console.log(data)
             window.location.reload(true)
-          })
+          });
+    });
+});
+
+function clearTasksEvent(completedOnly) {
+    fetch('clearTasks', {
+        method: 'delete',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({'completedOnly': completedOnly})
     })
-})
+    .then(() => {
+        window.location.reload(true)
+    }); 
+}
+
+clearCompletedTasksButton.addEventListener('click', () => {
+    clearTasksEvent(true);
+});
+
+clearAllTasksButton.addEventListener('click', () => {
+    clearTasksEvent(false);
+});

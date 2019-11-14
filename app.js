@@ -49,7 +49,6 @@ app.post('/todoSubmit', (request, response) => {
 });
 
 app.put('/toggleComplete', (request, response) => {
-    console.log(request.body);
     db.collection('Todo-List-Collection').findOneAndUpdate({
         _id: ObjectID(request.body._id)
     }, {
@@ -65,4 +64,22 @@ app.put('/toggleComplete', (request, response) => {
           }
           response.send(result);
       });
+})
+
+app.delete('/clearTasks', (request, response) => {
+    if(request.body.completedOnly === true) {
+        db.collection('Todo-List-Collection').deleteMany({isComplete: true}, (error, result) => {
+            if(error) {
+                return response.send(error);
+            }
+            response.send("All completed tasks have been deleted from the database.");
+        });
+    } else {
+        db.collection('Todo-List-Collection').remove({}, (error, result) => {
+            if(error) {
+                return response.send(error);
+            }
+            response.send("All tasks have been removed from the database.");
+        });
+    }
 })
