@@ -1,4 +1,11 @@
+#todoBox {
+    height: 500px;
+}
+
 #todoBox header, #todoBox footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background-color: #000;
     color: #fff;
     font-weight: bolder;
@@ -24,5 +31,6 @@ body {
 
 #todoBox {
     display: inline-grid;
+    grid-template-rows: 20% 60% 20%;
     border: 1px solid black;
 }
